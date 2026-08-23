@@ -25,32 +25,193 @@ stemmer = PorterStemmer()
 # SAVE CHAT
 # =========================================================
 
-def save_chat(user_message, bot_reply):
+def save_chat(conversation_id, user_message, bot_reply):
 
-    connection = get_connection()
+    conn = get_connection()
 
-    if connection is None:
+    if conn is None:
         return
 
-    cursor = connection.cursor()
+    cursor = conn.cursor()
 
-    sql = """
-    INSERT INTO chat_history (user_message, bot_reply)
-    VALUES (%s, %s)
-    """
+    cursor.execute(
+        """
+        INSERT INTO chat_history
+        (conversation_id, user_message, bot_reply)
+        VALUES (%s, %s, %s)
+        """,
+        (
+            conversation_id,
+            user_message,
+            bot_reply
+        )
+    )
 
-    cursor.execute(sql, (user_message, bot_reply))
-    connection.commit()
+    # Change "New Chat" into first question
+    cursor.execute(
+        """
+        UPDATE conversations
+        SET title=%s
+        WHERE id=%s AND title='New Chat'
+        """,
+        (
+            user_message[:30],
+            conversation_id
+        )
+    )
+
+    conn.commit()
 
     cursor.close()
-    connection.close()
+    conn.close()
+
+
+# =========================================================
+# CREATE NEW CONVERSATION
+# =========================================================
+
+def create_conversation(student_id):
+
+    conn = get_connection()
+
+    if conn is None:
+        return None
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO conversations
+        (student_id, title)
+        VALUES (%s, %s)
+        """,
+        (
+            student_id,
+            "New Chat"
+        )
+    )
+
+    conn.commit()
+
+    conversation_id = cursor.lastrowid
+
+    cursor.close()
+    conn.close()
+
+    return conversation_id
+
+
+# =========================================================
+# GET ALL CONVERSATIONS
+# =========================================================
+
+def get_conversations(student_id):
+
+    conn = get_connection()
+
+    if conn is None:
+        return []
+
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM conversations
+        WHERE student_id=%s
+        ORDER BY created_at DESC
+        """,
+        (student_id,)
+    )
+
+    conversations = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return conversations
+
+
+# =========================================================
+# GET MESSAGES OF ONE CONVERSATION
+# =========================================================
+
+def get_messages(conversation_id):
+
+    conn = get_connection()
+
+    if conn is None:
+        return []
+
+    cursor = conn.cursor(dictionary=True)
+
+    # Your database uses user_message and bot_reply.
+    # We rename them as question and answer so that
+    # your existing HTML can continue using question/answer.
+
+    cursor.execute(
+        """
+        SELECT
+            id,
+            user_message AS question,
+            bot_reply AS answer,
+            created_at
+        FROM chat_history
+        WHERE conversation_id=%s
+        ORDER BY id ASC
+        """,
+        (conversation_id,)
+    )
+
+    messages = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return messages
+
+
+# =========================================================
+# CHECK CONVERSATION BELONGS TO STUDENT
+# =========================================================
+
+def conversation_belongs_to_student(conversation_id, student_id):
+
+    conn = get_connection()
+
+    if conn is None:
+        return False
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT id
+        FROM conversations
+        WHERE id=%s AND student_id=%s
+        """,
+        (
+            conversation_id,
+            student_id
+        )
+    )
+
+    result = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return result is not None
+
 
 # =========================================================
 # LOAD AI MODEL
 # =========================================================
 
 model = joblib.load("model/model.pkl")
+
 vectorizer = joblib.load("model/vectorizer.pkl")
+
 encoder = joblib.load("model/label_encoder.pkl")
 
 
@@ -84,12 +245,11 @@ def correct_spelling(text):
 
 def get_response(user_input):
 
-    # Convert input to lowercase
     user_input = user_input.strip().lower()
 
 
     # -----------------------------------------------------
-    # HANDLE GREETINGS
+    # GREETINGS
     # -----------------------------------------------------
 
     greetings = {
@@ -123,6 +283,7 @@ def get_response(user_input):
     corrected_input = correct_spelling(user_input)
 
     print("Original:", user_input)
+
     print("Corrected:", corrected_input)
 
 
@@ -180,13 +341,16 @@ def register():
     if request.method == "POST":
 
         name = request.form["name"]
+
         email = request.form["email"]
+
         password = request.form["password"]
 
 
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
@@ -194,15 +358,21 @@ def register():
 
         cursor.execute(
             """
-            INSERT INTO students(name, email, password)
-            VALUES(%s,%s,%s)
-            """,
+            INSERT INTO students
             (name, email, password)
+            VALUES (%s, %s, %s)
+            """,
+            (
+                name,
+                email,
+                password
+            )
         )
 
         connection.commit()
 
         cursor.close()
+
         connection.close()
 
 
@@ -222,12 +392,14 @@ def login():
     if request.method == "POST":
 
         email = request.form["email"]
+
         password = request.form["password"]
 
 
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
@@ -235,16 +407,20 @@ def login():
 
         cursor.execute(
             """
-            SELECT * FROM students
+            SELECT *
+            FROM students
             WHERE email=%s AND password=%s
             """,
-            (email, password)
+            (
+                email,
+                password
+            )
         )
 
         student = cursor.fetchone()
 
-
         cursor.close()
+
         connection.close()
 
 
@@ -254,11 +430,13 @@ def login():
 
             session["student_name"] = student["name"]
 
+            # Remove old conversation from session
+            session.pop("conversation_id", None)
+
             return redirect(url_for("chatbot"))
 
-        else:
 
-            return "Invalid Email or Password"
+        return "Invalid Email or Password"
 
 
     return render_template("login.html")
@@ -274,12 +452,14 @@ def admin_login():
     if request.method == "POST":
 
         username = request.form["username"]
+
         password = request.form["password"]
 
 
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
@@ -287,16 +467,20 @@ def admin_login():
 
         cursor.execute(
             """
-            SELECT * FROM admin
+            SELECT *
+            FROM admin
             WHERE username=%s AND password=%s
             """,
-            (username, password)
+            (
+                username,
+                password
+            )
         )
 
         admin = cursor.fetchone()
 
-
         cursor.close()
+
         connection.close()
 
 
@@ -306,9 +490,8 @@ def admin_login():
 
             return redirect(url_for("admin_dashboard"))
 
-        else:
 
-            return "Invalid Admin Login"
+        return "Invalid Admin Login"
 
 
     return render_template("admin_login.html")
@@ -332,6 +515,7 @@ def admin_dashboard():
     connection = get_connection()
 
     if connection is None:
+
         return "Database connection failed."
 
 
@@ -339,25 +523,39 @@ def admin_dashboard():
 
 
     # -----------------------------------------------------
-    # SEARCH CHATS
+    # SEARCH CHAT HISTORY
     # -----------------------------------------------------
 
     if search:
 
         cursor.execute(
             """
-            SELECT * FROM chat_history
-            WHERE question LIKE %s
+            SELECT
+                id,
+                conversation_id,
+                user_message AS question,
+                bot_reply AS answer,
+                created_at
+            FROM chat_history
+            WHERE user_message LIKE %s
             ORDER BY id DESC
             """,
-            ("%" + search + "%",)
+            (
+                "%" + search + "%",
+            )
         )
 
     else:
 
         cursor.execute(
             """
-            SELECT * FROM chat_history
+            SELECT
+                id,
+                conversation_id,
+                user_message AS question,
+                bot_reply AS answer,
+                created_at
+            FROM chat_history
             ORDER BY id DESC
             """
         )
@@ -371,20 +569,27 @@ def admin_dashboard():
     # -----------------------------------------------------
 
     cursor.execute(
-        "SELECT COUNT(*) AS total_students FROM students"
+        """
+        SELECT COUNT(*) AS total_students
+        FROM students
+        """
     )
 
     total_students = cursor.fetchone()["total_students"]
 
 
     cursor.execute(
-        "SELECT COUNT(*) AS total_chats FROM chat_history"
+        """
+        SELECT COUNT(*) AS total_chats
+        FROM chat_history
+        """
     )
 
     total_chats = cursor.fetchone()["total_chats"]
 
 
     cursor.close()
+
     connection.close()
 
 
@@ -406,6 +611,7 @@ def notice():
     connection = get_connection()
 
     if connection is None:
+
         return "Database connection failed."
 
 
@@ -413,15 +619,16 @@ def notice():
 
     cursor.execute(
         """
-        SELECT * FROM notices
+        SELECT *
+        FROM notices
         ORDER BY notice_date DESC
         """
     )
 
     notices = cursor.fetchall()
 
-
     cursor.close()
+
     connection.close()
 
 
@@ -443,7 +650,112 @@ def chatbot():
         return redirect(url_for("login"))
 
 
-    return render_template("chatbot.html")
+    student_id = session["student_id"]
+
+
+    # Get student's conversations
+    conversations = get_conversations(student_id)
+
+
+    # -----------------------------------------------------
+    # CREATE FIRST CHAT IF NONE EXISTS
+    # -----------------------------------------------------
+
+    if not conversations:
+
+        conversation_id = create_conversation(student_id)
+
+        session["conversation_id"] = conversation_id
+
+    else:
+
+        # If current conversation doesn't exist
+        # or doesn't belong to this student,
+        # select the latest conversation.
+
+        current_id = session.get("conversation_id")
+
+
+        if (
+            current_id is None
+            or not conversation_belongs_to_student(
+                current_id,
+                student_id
+            )
+        ):
+
+            session["conversation_id"] = conversations[0]["id"]
+
+
+    # -----------------------------------------------------
+    # GET CURRENT CHAT MESSAGES
+    # -----------------------------------------------------
+
+    messages = get_messages(
+        session["conversation_id"]
+    )
+
+
+    # Refresh conversation list
+    conversations = get_conversations(student_id)
+
+
+    return render_template(
+        "chatbot.html",
+        conversations=conversations,
+        messages=messages
+    )
+
+
+# =========================================================
+# NEW CHAT
+# =========================================================
+
+@app.route("/new_chat")
+def new_chat():
+
+    if "student_id" not in session:
+
+        return redirect(url_for("login"))
+
+
+    conversation_id = create_conversation(
+        session["student_id"]
+    )
+
+
+    session["conversation_id"] = conversation_id
+
+
+    return redirect(url_for("chatbot"))
+
+
+# =========================================================
+# OPEN OLD CONVERSATION
+# =========================================================
+
+@app.route("/conversation/<int:id>")
+def open_conversation(id):
+
+    if "student_id" not in session:
+
+        return redirect(url_for("login"))
+
+
+    # Make sure student can only open their own chats
+
+    if not conversation_belongs_to_student(
+        id,
+        session["student_id"]
+    ):
+
+        return redirect(url_for("chatbot"))
+
+
+    session["conversation_id"] = id
+
+
+    return redirect(url_for("chatbot"))
 
 
 # =========================================================
@@ -470,6 +782,7 @@ def add_notice():
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
@@ -479,7 +792,7 @@ def add_notice():
             """
             INSERT INTO notices
             (title, description, notice_date)
-            VALUES (%s,%s,%s)
+            VALUES (%s, %s, %s)
             """,
             (
                 title,
@@ -490,8 +803,8 @@ def add_notice():
 
         connection.commit()
 
-
         cursor.close()
+
         connection.close()
 
 
@@ -516,6 +829,7 @@ def delete_chat(id):
     connection = get_connection()
 
     if connection is None:
+
         return "Database connection failed."
 
 
@@ -531,8 +845,8 @@ def delete_chat(id):
 
     connection.commit()
 
-
     cursor.close()
+
     connection.close()
 
 
@@ -561,17 +875,17 @@ def feedback():
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
         cursor = connection.cursor()
 
-
         cursor.execute(
             """
             INSERT INTO feedback
             (student_id, rating, comment)
-            VALUES(%s,%s,%s)
+            VALUES (%s, %s, %s)
             """,
             (
                 session["student_id"],
@@ -580,11 +894,10 @@ def feedback():
             )
         )
 
-
         connection.commit()
 
-
         cursor.close()
+
         connection.close()
 
 
@@ -618,17 +931,17 @@ def add_faq():
         connection = get_connection()
 
         if connection is None:
+
             return "Database connection failed."
 
 
         cursor = connection.cursor()
 
-
         cursor.execute(
             """
             INSERT INTO faqs
             (category, question, answer)
-            VALUES(%s,%s,%s)
+            VALUES (%s, %s, %s)
             """,
             (
                 category,
@@ -637,11 +950,10 @@ def add_faq():
             )
         )
 
-
         connection.commit()
 
-
         cursor.close()
+
         connection.close()
 
 
@@ -673,6 +985,7 @@ def notices():
     connection = get_connection()
 
     if connection is None:
+
         return "Database connection failed."
 
 
@@ -680,15 +993,16 @@ def notices():
 
     cursor.execute(
         """
-        SELECT * FROM notices
+        SELECT *
+        FROM notices
         ORDER BY notice_date DESC
         """
     )
 
     all_notices = cursor.fetchall()
 
-
     cursor.close()
+
     connection.close()
 
 
@@ -715,12 +1029,46 @@ def home():
 @app.route("/chat", methods=["POST"])
 def chat():
 
-    user_message = request.json["message"]
+    if "student_id" not in session:
+
+        return jsonify({
+            "response": "Please login first."
+        }), 401
+
+
+    if "conversation_id" not in session:
+
+        session["conversation_id"] = create_conversation(
+            session["student_id"]
+        )
+
+
+    data = request.get_json()
+
+    if not data or "message" not in data:
+
+        return jsonify({
+            "response": "Please enter a message."
+        }), 400
+
+
+    user_message = data["message"].strip()
+
+
+    if not user_message:
+
+        return jsonify({
+            "response": "Please enter a message."
+        }), 400
+
 
     bot_reply = get_response(user_message)
 
 
+    # SAVE MESSAGE TO CURRENT CONVERSATION
+
     save_chat(
+        session["conversation_id"],
         user_message,
         bot_reply
     )
@@ -736,4 +1084,8 @@ def chat():
 # =========================================================
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False)
+
+    app.run(
+        debug=True,
+        use_reloader=False
+    )
