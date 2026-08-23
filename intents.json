@@ -1,0 +1,1365 @@
+{
+  "intents": [
+    {
+  "tag": "greeting",
+  "question": "Hi",
+  "answer": "Hi! Welcome to the ACPCE enquiry chatbot. What would you like to know?"
+},
+{
+  "tag": "greeting",
+  "question": "Hello",
+  "answer": "Hello! Welcome to the A. C. Patil College of Engineering enquiry chatbot. How can I help you?"
+},
+{
+  "tag": "greeting",
+  "question": "Hey",
+  "answer": "Hey! Welcome to the ACPCE enquiry chatbot. Ask me about admissions, courses, fees, location, facilities or placements."
+},
+{
+  "tag": "greeting",
+  "question": "Hi there",
+  "answer": "Hi there! Welcome to ACPCE. How can I help you today?"
+},
+{
+  "tag": "greeting",
+  "question": "Good morning",
+  "answer": "Good morning! Welcome to the ACPCE enquiry chatbot. How can I assist you?"
+},
+{
+  "tag": "greeting",
+  "question": "Good afternoon",
+  "answer": "Good afternoon! How can I help you with your ACPCE enquiry?"
+},
+{
+  "tag": "greeting",
+  "question": "Good evening",
+  "answer": "Good evening! Welcome to ACPCE. What information are you looking for?"
+},
+    {
+      "tag": "college_location_001",
+      "question": "Where is A. C. Patil College of Engineering located?",
+      "answer": "A. C. Patil College of Engineering is located at Plot No. 17, Sion-Panvel Expressway, opposite Kharghar Railway Station, Sector 4, Kharghar, Navi Mumbai, Maharashtra 410210."
+    },
+    {
+      "tag": "college_location_002",
+      "question": "Where is ACPCE located?",
+      "answer": "ACPCE is located in Sector 4, Kharghar, Navi Mumbai, opposite Kharghar Railway Station."
+    },
+    {
+      "tag": "college_location_003",
+      "question": "What is the address of A C Patil College?",
+      "answer": "The address is Plot No. 17, Sion-Panvel Expressway, opposite Kharghar Railway Station, Sector 4, Kharghar, Navi Mumbai - 410210."
+    },
+    {
+      "tag": "college_location_004",
+      "question": "What is the full address of ACPCE?",
+      "answer": "A. C. Patil College of Engineering, Plot No. 17, Sion-Panvel Expressway, Opp. Kharghar Railway Station, Sector 4, Kharghar, Navi Mumbai - 410210."
+    },
+    {
+      "tag": "college_location_005",
+      "question": "Where is ACPCE college?",
+      "answer": "ACPCE is in Kharghar, Navi Mumbai, Maharashtra."
+    },
+    {
+      "tag": "college_location_006",
+      "question": "Which area is ACPCE in?",
+      "answer": "ACPCE is situated in Sector 4, Kharghar, Navi Mumbai."
+    },
+    {
+      "tag": "college_location_007",
+      "question": "Which city is ACPCE in?",
+      "answer": "ACPCE is located in Navi Mumbai, Maharashtra."
+    },
+    {
+      "tag": "college_location_008",
+      "question": "Which sector is A C Patil College in?",
+      "answer": "A. C. Patil College of Engineering is located in Sector 4, Kharghar."
+    },
+    {
+      "tag": "college_location_009",
+      "question": "Is ACPCE in Kharghar?",
+      "answer": "Yes. ACPCE is located in Sector 4, Kharghar, Navi Mumbai."
+    },
+    {
+      "tag": "college_location_010",
+      "question": "What is the pincode of ACPCE?",
+      "answer": "The pincode of ACPCE is 410210."
+    },
+    {
+      "tag": "college_location_011",
+      "question": "What is the nearest landmark to ACPCE?",
+      "answer": "Kharghar Railway Station is the major landmark because ACPCE is located directly opposite the station."
+    },
+    {
+      "tag": "college_location_012",
+      "question": "What landmark should I use to find ACPCE?",
+      "answer": "Use Kharghar Railway Station as the main landmark. The college is located opposite the station."
+    },
+
+    {
+      "tag": "railway_013",
+      "question": "What is the nearest railway station to ACPCE?",
+      "answer": "Kharghar Railway Station is the nearest railway station. It is located opposite the college."
+    },
+    {
+      "tag": "railway_014",
+      "question": "Which railway station is near ACPCE?",
+      "answer": "Kharghar Railway Station is the nearest railway station to ACPCE."
+    },
+    {
+      "tag": "railway_015",
+      "question": "Is ACPCE near Kharghar Railway Station?",
+      "answer": "Yes. ACPCE is located directly opposite Kharghar Railway Station."
+    },
+    {
+      "tag": "railway_016",
+      "question": "How far is Kharghar Railway Station from ACPCE?",
+      "answer": "Kharghar Railway Station is directly opposite the college, so it is only a short walk from the campus."
+    },
+    {
+      "tag": "railway_017",
+      "question": "Can I reach ACPCE by train?",
+      "answer": "Yes. Kharghar Railway Station is directly opposite ACPCE, making the college convenient to reach by local train."
+    },
+    {
+      "tag": "railway_018",
+      "question": "Is ACPCE walking distance from Kharghar station?",
+      "answer": "Yes. The college is directly opposite Kharghar Railway Station and can be reached by a short walk."
+    },
+    {
+      "tag": "railway_019",
+      "question": "Which local train should I take for ACPCE?",
+      "answer": "Take a Harbour Line local train that stops at Kharghar Railway Station."
+    },
+    {
+      "tag": "railway_020",
+      "question": "Where should I get down for ACPCE?",
+      "answer": "If travelling by local train, get down at Kharghar Railway Station."
+    },
+    {
+      "tag": "railway_021",
+      "question": "How can I reach ACPCE from Panvel?",
+      "answer": "Take a local train towards the Mumbai/CSMT side and get down at Kharghar Railway Station. ACPCE is located opposite the station."
+    },
+    {
+      "tag": "railway_022",
+      "question": "How can I reach ACPCE from Vashi?",
+      "answer": "Take a Harbour Line local train towards Panvel and get down at Kharghar Railway Station. The college is opposite the station."
+    },
+    {
+      "tag": "railway_023",
+      "question": "How can I reach ACPCE from CSMT?",
+      "answer": "Take a Harbour Line local train towards Panvel and get down at Kharghar Railway Station. From the station, ACPCE is directly opposite."
+    },
+    {
+      "tag": "railway_024",
+      "question": "How can I reach ACPCE from Mumbai?",
+      "answer": "You can travel by Harbour Line local train towards Panvel and get down at Kharghar Railway Station. ACPCE is opposite the station."
+    },
+    {
+      "tag": "railway_025",
+      "question": "How can I reach ACPCE by local train?",
+      "answer": "Travel to Kharghar Railway Station by local train. After getting down at Kharghar, the college is located opposite the railway station."
+    },
+    {
+      "tag": "railway_026",
+      "question": "How can I reach ACPCE from Navi Mumbai?",
+      "answer": "ACPCE can be reached through the Navi Mumbai local transport network. Kharghar Railway Station is the nearest railway station."
+    },
+    {
+      "tag": "railway_027",
+      "question": "How can I reach ACPCE from Nerul?",
+      "answer": "Travel by local train towards Panvel and get down at Kharghar Railway Station. ACPCE is opposite the station."
+    },
+    {
+      "tag": "railway_028",
+      "question": "How can I reach ACPCE from Belapur?",
+      "answer": "Take a Harbour Line local train towards Panvel and get down at Kharghar Railway Station. ACPCE is opposite the station."
+    },
+    {
+      "tag": "railway_029",
+      "question": "How can I reach ACPCE from Thane?",
+      "answer": "Travel towards the Navi Mumbai side and connect to the Harbour Line towards Panvel. Get down at Kharghar Railway Station, opposite ACPCE."
+    },
+    {
+      "tag": "railway_030",
+      "question": "How can I reach ACPCE from Dadar?",
+      "answer": "Travel towards the Harbour Line and take a train towards Panvel. Get down at Kharghar Railway Station, which is opposite the college."
+    },
+    {
+      "tag": "railway_031",
+      "question": "How can I reach ACPCE from Kurla?",
+      "answer": "Take a Harbour Line local train towards Panvel and get down at Kharghar Railway Station. ACPCE is opposite the station."
+    },
+
+    {
+      "tag": "road_032",
+      "question": "Can I reach ACPCE by road?",
+      "answer": "Yes. ACPCE is located on the Sion-Panvel Expressway in Sector 4, Kharghar."
+    },
+    {
+      "tag": "road_033",
+      "question": "Is ACPCE near the Sion-Panvel Expressway?",
+      "answer": "Yes. ACPCE is located on the Sion-Panvel Expressway in Sector 4, Kharghar."
+    },
+    {
+      "tag": "road_034",
+      "question": "Which highway is near ACPCE?",
+      "answer": "ACPCE is located on the Sion-Panvel Expressway."
+    },
+    {
+      "tag": "bus_035",
+      "question": "Can I reach ACPCE by bus?",
+      "answer": "Yes. Kharghar is connected by local bus services, and ACPCE is located near Kharghar Railway Station and the local transport network."
+    },
+    {
+      "tag": "bus_036",
+      "question": "What is the nearest bus stop to ACPCE?",
+      "answer": "Kharghar bus stops and the local Kharghar bus network provide access to the college."
+    },
+    {
+      "tag": "transport_037",
+      "question": "Is ACPCE easy to reach?",
+      "answer": "Yes. ACPCE is conveniently located opposite Kharghar Railway Station and is also accessible by road and local transport."
+    },
+    {
+      "tag": "parking_038",
+      "question": "Is parking available at ACPCE?",
+      "answer": "For current parking availability and rules, students should confirm with the college administration."
+    },
+
+    {
+      "tag": "college_info_039",
+      "question": "What is the full name of ACPCE?",
+      "answer": "The full name is A. C. Patil College of Engineering."
+    },
+    {
+      "tag": "college_info_040",
+      "question": "What does ACPCE stand for?",
+      "answer": "ACPCE stands for A. C. Patil College of Engineering."
+    },
+    {
+      "tag": "college_info_041",
+      "question": "Tell me about ACPCE.",
+      "answer": "A. C. Patil College of Engineering is an engineering college located in Kharghar, Navi Mumbai. It was established in 1992 and is affiliated with the University of Mumbai."
+    },
+    {
+      "tag": "college_info_042",
+      "question": "When was ACPCE established?",
+      "answer": "A. C. Patil College of Engineering was established in 1992."
+    },
+    {
+      "tag": "college_info_043",
+      "question": "When was A C Patil College established?",
+      "answer": "A. C. Patil College of Engineering was established in 1992."
+    },
+    {
+      "tag": "college_info_044",
+      "question": "Which university is ACPCE affiliated to?",
+      "answer": "ACPCE is affiliated with the University of Mumbai."
+    },
+    {
+      "tag": "college_info_045",
+      "question": "Is ACPCE affiliated with Mumbai University?",
+      "answer": "Yes. A. C. Patil College of Engineering is affiliated with the University of Mumbai."
+    },
+    {
+      "tag": "college_info_046",
+      "question": "Is ACPCE affiliated to Mumbai University?",
+      "answer": "Yes. ACPCE is affiliated with the University of Mumbai."
+    },
+    {
+      "tag": "college_info_047",
+      "question": "Is ACPCE approved by AICTE?",
+      "answer": "Yes. The college states that its engineering and MBA programs are approved by AICTE."
+    },
+    {
+      "tag": "college_info_048",
+      "question": "Is ACPCE a private college?",
+      "answer": "ACPCE is a private engineering college located in Kharghar, Navi Mumbai."
+    },
+
+    {
+      "tag": "courses_049",
+      "question": "What courses are available at ACPCE?",
+      "answer": "ACPCE offers Electrical Engineering, Computer Engineering, Information Technology, Mechanical Engineering, Artificial Intelligence and Data Science, Computer Science and Engineering, Electronics and Telecommunication Engineering, Aeronautical Engineering, and Master of Management Studies."
+    },
+    {
+      "tag": "courses_050",
+      "question": "Which engineering branches are available at ACPCE?",
+      "answer": "The engineering branches include Electrical Engineering, Computer Engineering, Information Technology, Mechanical Engineering, Artificial Intelligence and Data Science, Computer Science and Engineering, Electronics and Telecommunication Engineering, and Aeronautical Engineering."
+    },
+    {
+      "tag": "courses_051",
+      "question": "Does ACPCE offer Computer Engineering?",
+      "answer": "Yes. ACPCE offers B.E. in Computer Engineering."
+    },
+    {
+      "tag": "courses_052",
+      "question": "Is Computer Engineering available at ACPCE?",
+      "answer": "Yes. Computer Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_053",
+      "question": "Does ACPCE offer Information Technology?",
+      "answer": "Yes. Information Technology is offered as an undergraduate engineering program."
+    },
+    {
+      "tag": "courses_054",
+      "question": "Does ACPCE offer IT engineering?",
+      "answer": "Yes. ACPCE offers Information Technology as an engineering program."
+    },
+    {
+      "tag": "courses_055",
+      "question": "Does ACPCE offer AI and Data Science?",
+      "answer": "Yes. ACPCE offers Artificial Intelligence and Data Science as an undergraduate engineering program."
+    },
+    {
+      "tag": "courses_056",
+      "question": "Does ACPCE offer AI DS?",
+      "answer": "Yes. Artificial Intelligence and Data Science is available at ACPCE."
+    },
+    {
+      "tag": "courses_057",
+      "question": "Does ACPCE offer Computer Science Engineering?",
+      "answer": "Yes. Computer Science and Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_058",
+      "question": "Does ACPCE offer CSE?",
+      "answer": "Yes. ACPCE offers Computer Science and Engineering."
+    },
+    {
+      "tag": "courses_059",
+      "question": "Does ACPCE offer Mechanical Engineering?",
+      "answer": "Yes. Mechanical Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_060",
+      "question": "Does ACPCE offer Electrical Engineering?",
+      "answer": "Yes. Electrical Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_061",
+      "question": "Does ACPCE offer Electronics and Telecommunication?",
+      "answer": "Yes. Electronics and Telecommunication Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_062",
+      "question": "Does ACPCE offer EXTC?",
+      "answer": "Yes. Electronics and Telecommunication Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "courses_063",
+      "question": "Does ACPCE offer Aeronautical Engineering?",
+      "answer": "Yes. ACPCE offers B.E. in Aeronautical Engineering from the 2025–26 academic year."
+    },
+    {
+      "tag": "courses_064",
+      "question": "Does ACPCE have Aeronautical Engineering?",
+      "answer": "Yes. Aeronautical Engineering is available at ACPCE from the 2025–26 academic year."
+    },
+    {
+      "tag": "courses_065",
+      "question": "Does ACPCE have MMS?",
+      "answer": "Yes. ACPCE offers Master of Management Studies (MMS)."
+    },
+    {
+      "tag": "courses_066",
+      "question": "Does ACPCE offer management courses?",
+      "answer": "Yes. ACPCE offers Master of Management Studies (MMS)."
+    },
+
+    {
+      "tag": "intake_067",
+      "question": "How many seats are available for Computer Engineering?",
+      "answer": "The current published intake for Computer Engineering is 120 seats."
+    },
+    {
+      "tag": "intake_068",
+      "question": "What is the intake for Computer Engineering?",
+      "answer": "The current published intake for Computer Engineering is 120 students."
+    },
+    {
+      "tag": "intake_069",
+      "question": "How many seats are available for AI and Data Science?",
+      "answer": "The current published intake for Artificial Intelligence and Data Science is 120 seats."
+    },
+    {
+      "tag": "intake_070",
+      "question": "What is the intake for AI and Data Science?",
+      "answer": "The current published intake for AI and Data Science is 120 students."
+    },
+    {
+      "tag": "intake_071",
+      "question": "How many seats are available for Information Technology?",
+      "answer": "The current published intake for Information Technology is 60 seats."
+    },
+    {
+      "tag": "intake_072",
+      "question": "What is the intake for Information Technology?",
+      "answer": "The current published intake for Information Technology is 60 students."
+    },
+    {
+      "tag": "intake_073",
+      "question": "How many seats are available for Mechanical Engineering?",
+      "answer": "The current published intake for Mechanical Engineering is 60 seats."
+    },
+    {
+      "tag": "intake_074",
+      "question": "How many seats are available for Electrical Engineering?",
+      "answer": "The current published intake for Electrical Engineering is 60 seats."
+    },
+    {
+      "tag": "intake_075",
+      "question": "How many seats are available for CSE?",
+      "answer": "The current published intake for Computer Science and Engineering is 60 seats."
+    },
+    {
+      "tag": "intake_076",
+      "question": "How many seats are available for EXTC?",
+      "answer": "The current published intake for Electronics and Telecommunication Engineering is 60 seats."
+    },
+    {
+      "tag": "intake_077",
+      "question": "How many seats are available for Aeronautical Engineering?",
+      "answer": "The current published intake for Aeronautical Engineering is 60 seats."
+    },
+    {
+      "tag": "intake_078",
+      "question": "Which branch has the highest intake?",
+      "answer": "Based on the listed current intake, Computer Engineering and Artificial Intelligence and Data Science have 120 seats each."
+    },
+
+    {
+      "tag": "admission_079",
+      "question": "What is the admission process at ACPCE?",
+      "answer": "The admission process is carried out according to the applicable Directorate of Technical Education, Maharashtra rules. Students should check the latest admission notification for current eligibility, documents and procedure."
+    },
+    {
+      "tag": "admission_080",
+      "question": "How can I get admission in ACPCE?",
+      "answer": "Admission is conducted according to the applicable Maharashtra DTE rules and admission process. Check the latest ACPCE admission notification for current details."
+    },
+    {
+      "tag": "admission_081",
+      "question": "How can I apply to ACPCE?",
+      "answer": "Students should follow the applicable Maharashtra admission process and check the latest ACPCE admission notification for application instructions."
+    },
+    {
+      "tag": "admission_082",
+      "question": "What is the eligibility for engineering admission?",
+      "answer": "Engineering admission eligibility depends on the current Maharashtra admission rules and applicable DTE/CET process. Check the latest official admission notification for exact requirements."
+    },
+    {
+      "tag": "admission_083",
+      "question": "What is the eligibility for B.E. admission?",
+      "answer": "B.E. eligibility depends on the current Maharashtra admission rules. Students should check the latest official admission notification for exact requirements."
+    },
+    {
+      "tag": "admission_084",
+      "question": "Can I get admission through MHT CET?",
+      "answer": "Engineering admissions are conducted according to the applicable Maharashtra admission process. Check the latest DTE and ACPCE admission notification for the current admission route."
+    },
+    {
+      "tag": "admission_085",
+      "question": "Can I get admission through JEE?",
+      "answer": "Admission routes and seat allocation depend on the current Maharashtra admission rules. Students should check the latest official admission notification."
+    },
+    {
+      "tag": "admission_086",
+      "question": "Is MHT CET required for ACPCE?",
+      "answer": "The applicable entrance examination requirements depend on the current admission rules. Students should check the latest Maharashtra DTE notification."
+    },
+    {
+      "tag": "admission_087",
+      "question": "What documents are required for admission?",
+      "answer": "Required documents depend on the course and admission category. Please check the current ACPCE admission notification for the latest list."
+    },
+    {
+      "tag": "admission_088",
+      "question": "What documents are required for CAP admission?",
+      "answer": "CAP admission documents depend on the student's category and admission route. Check the latest Maharashtra DTE/CAP document requirements."
+    },
+    {
+      "tag": "admission_089",
+      "question": "Is domicile required for admission?",
+      "answer": "Domicile requirements depend on the admission category and current Maharashtra admission rules."
+    },
+    {
+      "tag": "admission_090",
+      "question": "Is caste certificate required?",
+      "answer": "Certificate requirements depend on the student's admission category. Check the latest official admission guidelines."
+    },
+    {
+      "tag": "admission_091",
+      "question": "Is caste validity required?",
+      "answer": "Caste validity requirements depend on the applicable admission category and current government rules."
+    },
+    {
+      "tag": "admission_092",
+      "question": "Is income certificate required?",
+      "answer": "Income certificate requirements depend on the scholarship or admission category. Check the current official requirements."
+    },
+    {
+      "tag": "admission_093",
+      "question": "Is EWS certificate accepted?",
+      "answer": "EWS eligibility and document requirements depend on the current admission rules. Students should check the latest official notification."
+    },
+    {
+      "tag": "admission_094",
+      "question": "Is TFWS available?",
+      "answer": "TFWS availability depends on the approved seats and current Maharashtra admission rules."
+    },
+    {
+      "tag": "admission_095",
+      "question": "What is TFWS?",
+      "answer": "TFWS stands for Tuition Fee Waiver Scheme. Eligibility and seat availability are governed by the applicable Maharashtra admission rules."
+    },
+    {
+      "tag": "admission_096",
+      "question": "Can diploma students apply to ACPCE?",
+      "answer": "Eligible diploma students can apply for Direct Second Year Engineering admission according to the applicable Maharashtra admission process."
+    },
+    {
+      "tag": "admission_097",
+      "question": "Does ACPCE offer direct second year engineering?",
+      "answer": "Yes. ACPCE has admission provisions for Direct Second Year Engineering according to applicable rules."
+    },
+    {
+      "tag": "admission_098",
+      "question": "What is direct second year admission?",
+      "answer": "Direct Second Year Engineering admission is an entry route for eligible diploma students according to the applicable Maharashtra admission rules."
+    },
+    {
+      "tag": "admission_099",
+      "question": "Can diploma holders join ACPCE?",
+      "answer": "Eligible diploma holders may apply for Direct Second Year Engineering admission according to Maharashtra admission rules."
+    },
+    {
+      "tag": "admission_100",
+      "question": "When does ACPCE admission start?",
+      "answer": "Admission dates can change each academic year. Students should check the latest ACPCE and Maharashtra DTE admission notifications."
+    },
+    {
+      "tag": "admission_101",
+      "question": "When does the ACPCE admission form come out?",
+      "answer": "Application dates depend on the current admission schedule. Check the latest official admission notification."
+    },
+    {
+      "tag": "admission_102",
+      "question": "Where can I get the ACPCE admission form?",
+      "answer": "Admission forms and application instructions should be obtained through the official admission process and ACPCE admission information."
+    },
+    {
+      "tag": "admission_103",
+      "question": "Can I change my branch after admission?",
+      "answer": "Branch change is subject to University of Mumbai, college and applicable academic rules. Students should contact the college for current conditions."
+    },
+    {
+      "tag": "admission_104",
+      "question": "Is institute-level admission available?",
+      "answer": "Institute-level admission depends on available seats and current Maharashtra admission rules. Check the latest official notification."
+    },
+
+    {
+      "tag": "fees_105",
+      "question": "What is the fee structure at ACPCE?",
+      "answer": "ACPCE publishes separate fee information for First Year Engineering, Direct Second Year Engineering and First Year MMS. Please check the latest official fee structure for the current academic year."
+    },
+    {
+      "tag": "fees_106",
+      "question": "What is the engineering fee at ACPCE?",
+      "answer": "The engineering fee can vary by academic year and admission category. Please refer to the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_107",
+      "question": "What is the first-year engineering fee?",
+      "answer": "The current first-year engineering fee should be checked in the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_108",
+      "question": "What is the Computer Engineering fee?",
+      "answer": "The applicable Computer Engineering fee depends on the current academic year and admission category. Check the latest official fee structure."
+    },
+    {
+      "tag": "fees_109",
+      "question": "What is the CSE fee?",
+      "answer": "The CSE fee depends on the current academic year and admission category. Check the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_110",
+      "question": "What is the IT fee?",
+      "answer": "The IT fee depends on the current academic year and admission category. Check the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_111",
+      "question": "What is the AI and Data Science fee?",
+      "answer": "The applicable fee should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_112",
+      "question": "What is the Mechanical Engineering fee?",
+      "answer": "The applicable Mechanical Engineering fee should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_113",
+      "question": "What is the Electrical Engineering fee?",
+      "answer": "The applicable Electrical Engineering fee should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_114",
+      "question": "What is the EXTC fee?",
+      "answer": "The applicable EXTC fee should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_115",
+      "question": "What is the Aeronautical Engineering fee?",
+      "answer": "The applicable Aeronautical Engineering fee should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "fees_116",
+      "question": "What is the MMS fee at ACPCE?",
+      "answer": "MMS fees are published separately by the college and can change by academic year. Check the latest official fee notification."
+    },
+    {
+      "tag": "fees_117",
+      "question": "Is the fee different for different categories?",
+      "answer": "Fees and concessions can vary according to the student's admission category and applicable government rules."
+    },
+    {
+      "tag": "fees_118",
+      "question": "Can fees be paid online?",
+      "answer": "Online fee payment availability should be confirmed through the latest college fee payment instructions."
+    },
+    {
+      "tag": "fees_119",
+      "question": "Can fees be paid in installments?",
+      "answer": "Installment options depend on current college rules. Students should contact the administration for the latest information."
+    },
+    {
+      "tag": "fees_120",
+      "question": "What is the examination fee?",
+      "answer": "Examination fees are determined according to the applicable University of Mumbai and college rules."
+    },
+    {
+      "tag": "fees_121",
+      "question": "Are there additional college charges?",
+      "answer": "Additional charges may apply depending on the course and academic year. Check the latest official fee structure."
+    },
+
+    {
+      "tag": "cutoff_122",
+      "question": "What is the ACPCE cutoff?",
+      "answer": "Cutoffs can change every year, category and admission round. Students should check the latest official Maharashtra admission cutoff information."
+    },
+    {
+      "tag": "cutoff_123",
+      "question": "What was the Computer Engineering cutoff?",
+      "answer": "The Computer Engineering cutoff changes by year, category and CAP round. Check the latest official cutoff data."
+    },
+    {
+      "tag": "cutoff_124",
+      "question": "What was the CSE cutoff?",
+      "answer": "The CSE cutoff changes by academic year, category and CAP round. Check the latest official cutoff information."
+    },
+    {
+      "tag": "cutoff_125",
+      "question": "What was the IT cutoff?",
+      "answer": "The IT cutoff varies by year, category and admission round. Check the latest official cutoff data."
+    },
+    {
+      "tag": "cutoff_126",
+      "question": "What was the AI and Data Science cutoff?",
+      "answer": "The AI and Data Science cutoff changes by year, category and CAP round. Check the latest official information."
+    },
+    {
+      "tag": "cutoff_127",
+      "question": "What was the Mechanical Engineering cutoff?",
+      "answer": "The Mechanical Engineering cutoff varies by year, category and admission round."
+    },
+    {
+      "tag": "cutoff_128",
+      "question": "What was the Electrical Engineering cutoff?",
+      "answer": "The Electrical Engineering cutoff varies according to the year, category and admission round."
+    },
+    {
+      "tag": "cutoff_129",
+      "question": "What was the EXTC cutoff?",
+      "answer": "The EXTC cutoff depends on the academic year, category and CAP round."
+    },
+    {
+      "tag": "cutoff_130",
+      "question": "What was the Aeronautical Engineering cutoff?",
+      "answer": "The Aeronautical Engineering cutoff depends on the applicable admission year and category."
+    },
+    {
+      "tag": "cutoff_131",
+      "question": "What percentile is required for Computer Engineering?",
+      "answer": "The required percentile varies by year, category and CAP round. Check the latest official cutoff data."
+    },
+    {
+      "tag": "cutoff_132",
+      "question": "What percentile is required for CSE?",
+      "answer": "The required CSE percentile varies by admission year, category and CAP round."
+    },
+    {
+      "tag": "cutoff_133",
+      "question": "Can I get admission with my percentile?",
+      "answer": "Your admission chances depend on your percentile, category, branch preference and CAP round. Compare your score with the latest cutoff."
+    },
+    {
+      "tag": "cutoff_134",
+      "question": "What was last year's cutoff?",
+      "answer": "Last year's cutoff should be checked from the official Maharashtra admission cutoff records for the relevant branch and category."
+    },
+    {
+      "tag": "cutoff_135",
+      "question": "Is cutoff different for each category?",
+      "answer": "Yes. Cutoffs can differ according to category, branch and admission round."
+    },
+    {
+      "tag": "cutoff_136",
+      "question": "Is cutoff different for CAP rounds?",
+      "answer": "Yes. Cutoffs can change between CAP rounds depending on seat availability and applicant preferences."
+    },
+    {
+      "tag": "cutoff_137",
+      "question": "What is the CAP Round 1 cutoff?",
+      "answer": "CAP Round 1 cutoffs vary by branch, category and academic year. Check the latest official CAP data."
+    },
+    {
+      "tag": "cutoff_138",
+      "question": "What is the CAP Round 2 cutoff?",
+      "answer": "CAP Round 2 cutoffs vary by branch, category and academic year."
+    },
+    {
+      "tag": "cutoff_139",
+      "question": "What is the CAP Round 3 cutoff?",
+      "answer": "CAP Round 3 cutoffs vary by branch, category and academic year."
+    },
+
+    {
+      "tag": "facilities_140",
+      "question": "Does ACPCE have a library?",
+      "answer": "Yes. ACPCE has an up-to-date library facility."
+    },
+    {
+      "tag": "facilities_141",
+      "question": "What are the library facilities at ACPCE?",
+      "answer": "ACPCE provides a library facility for students to support academic study and learning."
+    },
+    {
+      "tag": "facilities_142",
+      "question": "Does ACPCE have computer labs?",
+      "answer": "Yes. The college has a well-equipped computer centre and modern laboratories."
+    },
+    {
+      "tag": "facilities_143",
+      "question": "Does ACPCE have laboratories?",
+      "answer": "Yes. ACPCE provides modern laboratory facilities for its engineering programs."
+    },
+    {
+      "tag": "facilities_144",
+      "question": "Does ACPCE provide Wi-Fi?",
+      "answer": "Yes. The college states that it provides 24x7 high-speed Wi-Fi facilities."
+    },
+    {
+      "tag": "facilities_145",
+      "question": "Does ACPCE have a cafeteria?",
+      "answer": "Yes. A cafeteria is listed among the college facilities."
+    },
+    {
+      "tag": "facilities_146",
+      "question": "Does ACPCE have a canteen?",
+      "answer": "Yes. A cafeteria/canteen facility is listed among the college facilities."
+    },
+    {
+      "tag": "facilities_147",
+      "question": "Does ACPCE have a seminar hall?",
+      "answer": "Yes. A seminar hall is one of the facilities listed by the college."
+    },
+    {
+      "tag": "facilities_148",
+      "question": "Does ACPCE have classrooms?",
+      "answer": "Yes. The college provides classrooms and academic infrastructure for students."
+    },
+    {
+      "tag": "facilities_149",
+      "question": "Does ACPCE have a computer centre?",
+      "answer": "Yes. ACPCE has a computer centre and computer laboratories."
+    },
+    {
+      "tag": "facilities_150",
+      "question": "Does ACPCE have sports facilities?",
+      "answer": "Students can access sports and extracurricular facilities provided by the college. For the latest available facilities, check the current college facilities information."
+    },
+    {
+      "tag": "facilities_151",
+      "question": "Does ACPCE have a gym?",
+      "answer": "For the latest information about gym and fitness facilities, students should check the current college facilities page."
+    },
+    {
+      "tag": "hostel_152",
+      "question": "Does ACPCE have a hostel?",
+      "answer": "Hostel availability and accommodation details can change. Students should contact the college for the latest hostel information."
+    },
+    {
+      "tag": "hostel_153",
+      "question": "Is hostel available in ACPCE?",
+      "answer": "Please contact ACPCE directly for current hostel availability, accommodation options and fees."
+    },
+    {
+      "tag": "transport_154",
+      "question": "Does ACPCE provide transport?",
+      "answer": "Transport availability should be confirmed with the college because routes and services can change."
+    },
+    {
+      "tag": "accommodation_155",
+      "question": "Are there hostels near ACPCE?",
+      "answer": "Kharghar has various accommodation options. Students should verify current hostel or PG availability near the college."
+    },
+    {
+      "tag": "accommodation_156",
+      "question": "Are PGs available near ACPCE?",
+      "answer": "Kharghar has various PG and accommodation options. Availability and prices should be checked directly with the accommodation provider."
+    },
+
+    {
+      "tag": "placement_157",
+      "question": "Does ACPCE provide placement assistance?",
+      "answer": "Yes. ACPCE has a Training and Placement department that provides placement and career support to students."
+    },
+    {
+      "tag": "placement_158",
+      "question": "Does ACPCE have a placement department?",
+      "answer": "Yes. The college has a dedicated Training and Placement department."
+    },
+    {
+      "tag": "placement_159",
+      "question": "Does ACPCE arrange campus placements?",
+      "answer": "Yes. The Training and Placement department coordinates placement activities for eligible students."
+    },
+    {
+      "tag": "placement_160",
+      "question": "Does ACPCE provide internship support?",
+      "answer": "Yes. The college has training and placement activities and internship-related support."
+    },
+    {
+      "tag": "placement_161",
+      "question": "Are internships available at ACPCE?",
+      "answer": "Students can participate in internship and training opportunities through college activities and industry connections."
+    },
+    {
+      "tag": "placement_162",
+      "question": "Which companies recruit from ACPCE?",
+      "answer": "Recruiting companies can vary from year to year. Students should check the latest Training and Placement information for the current recruiter list."
+    },
+    {
+      "tag": "placement_163",
+      "question": "Which companies recruit Computer Engineering students?",
+      "answer": "Recruiters can change each year. Students should check the latest official placement information for the current recruiter list."
+    },
+    {
+      "tag": "placement_164",
+      "question": "Which companies recruit CSE students?",
+      "answer": "Recruiters can vary by academic year. Check the latest official placement information for current companies."
+    },
+    {
+      "tag": "placement_165",
+      "question": "What is the highest package at ACPCE?",
+      "answer": "Placement statistics can change every year. Please check the latest official placement report for current salary figures."
+    },
+    {
+      "tag": "placement_166",
+      "question": "What is the average package at ACPCE?",
+      "answer": "Average placement packages vary by year and branch. Check the latest official placement report for current statistics."
+    },
+    {
+      "tag": "placement_167",
+      "question": "What is the placement percentage at ACPCE?",
+      "answer": "Placement percentages can change every year and by branch. Check the latest official placement report."
+    },
+    {
+      "tag": "placement_168",
+      "question": "Does ACPCE provide placement training?",
+      "answer": "Yes. The Training and Placement department provides career and placement-related training activities."
+    },
+    {
+      "tag": "placement_169",
+      "question": "Does ACPCE conduct aptitude training?",
+      "answer": "Placement preparation can include aptitude and other career-readiness activities. Students should check the latest Training and Placement schedule."
+    },
+    {
+      "tag": "placement_170",
+      "question": "Does ACPCE conduct coding training?",
+      "answer": "Students may receive technical and placement preparation support. Current coding training activities should be confirmed with the Training and Placement department."
+    },
+    {
+      "tag": "placement_171",
+      "question": "Are mock interviews conducted?",
+      "answer": "Placement preparation may include interview preparation and mock interviews. Students should check the current placement schedule."
+    },
+    {
+      "tag": "placement_172",
+      "question": "Is resume preparation provided?",
+      "answer": "Career preparation and placement support may include resume guidance. Students should confirm the current services with the Training and Placement department."
+    },
+
+    {
+      "tag": "academics_173",
+      "question": "What subjects are taught in Computer Engineering?",
+      "answer": "Computer Engineering includes subjects related to programming, databases, data structures, computer networks, operating systems, software engineering and other computer technologies according to the applicable curriculum."
+    },
+    {
+      "tag": "academics_174",
+      "question": "What subjects are taught in CSE?",
+      "answer": "CSE covers areas such as programming, data structures, databases, operating systems, computer networks, software engineering and other computing subjects."
+    },
+    {
+      "tag": "academics_175",
+      "question": "Does ACPCE teach Java?",
+      "answer": "Programming languages and technologies are taught according to the applicable University of Mumbai curriculum and department activities."
+    },
+    {
+      "tag": "academics_176",
+      "question": "Does ACPCE teach Python?",
+      "answer": "Programming and technology subjects are taught according to the applicable curriculum and department activities."
+    },
+    {
+      "tag": "academics_177",
+      "question": "Are programming labs available?",
+      "answer": "Yes. Computer-related engineering programs have laboratory facilities for practical learning."
+    },
+    {
+      "tag": "academics_178",
+      "question": "Are coding competitions conducted?",
+      "answer": "Technical and student activities may include coding competitions. Students should check current college announcements."
+    },
+    {
+      "tag": "academics_179",
+      "question": "Are hackathons conducted?",
+      "answer": "Students may participate in hackathons and technical activities organized by the college or external organizations."
+    },
+    {
+      "tag": "academics_180",
+      "question": "Are AI and machine learning subjects available?",
+      "answer": "AI-related subjects are part of relevant programs and activities, particularly Artificial Intelligence and Data Science."
+    },
+    {
+      "tag": "academics_181",
+      "question": "Are cybersecurity subjects available?",
+      "answer": "Cybersecurity-related topics may be included in relevant computing curricula and technical activities."
+    },
+    {
+      "tag": "academics_182",
+      "question": "Are cloud computing subjects available?",
+      "answer": "Cloud and modern computing technologies may be covered through relevant curriculum and technical activities."
+    },
+    {
+      "tag": "academics_183",
+      "question": "Are students encouraged to do projects?",
+      "answer": "Engineering students are expected to participate in practical work and academic projects as part of their curriculum."
+    },
+
+    {
+      "tag": "curriculum_184",
+      "question": "Which curriculum does ACPCE follow?",
+      "answer": "ACPCE follows the applicable curriculum prescribed by the University of Mumbai for its affiliated programs."
+    },
+    {
+      "tag": "curriculum_185",
+      "question": "How many semesters are there in B.E.?",
+      "answer": "The B.E. engineering program normally consists of eight semesters."
+    },
+    {
+      "tag": "curriculum_186",
+      "question": "What is the duration of B.E.?",
+      "answer": "The regular B.E. engineering program is generally four years."
+    },
+    {
+      "tag": "curriculum_187",
+      "question": "What is the duration of MMS?",
+      "answer": "The MMS program is generally a two-year postgraduate management program."
+    },
+    {
+      "tag": "curriculum_188",
+      "question": "Is attendance compulsory at ACPCE?",
+      "answer": "Students are expected to follow the attendance requirements prescribed by the university and college."
+    },
+    {
+      "tag": "curriculum_189",
+      "question": "What happens if attendance is low?",
+      "answer": "Students with insufficient attendance may face academic restrictions according to university and college rules."
+    },
+    {
+      "tag": "curriculum_190",
+      "question": "How are semester exams conducted?",
+      "answer": "Semester examinations are conducted according to the applicable University of Mumbai examination rules."
+    },
+    {
+      "tag": "curriculum_191",
+      "question": "How are internal exams conducted?",
+      "answer": "Internal assessments are conducted according to the applicable academic and university guidelines."
+    },
+    {
+      "tag": "curriculum_192",
+      "question": "How can I check my timetable?",
+      "answer": "Students should check the latest timetable issued by their department or college administration."
+    },
+    {
+      "tag": "curriculum_193",
+      "question": "How can I check my examination schedule?",
+      "answer": "The examination schedule should be checked through official university and college notices."
+    },
+    {
+      "tag": "curriculum_194",
+      "question": "Where can I get academic notices?",
+      "answer": "Academic notices are generally provided through college departments, official notices and student communication channels."
+    },
+
+    {
+      "tag": "student_activities_195",
+      "question": "Does ACPCE have student clubs?",
+      "answer": "Student clubs and activities may vary by academic year. Students should check the latest college announcements for current clubs."
+    },
+    {
+      "tag": "student_activities_196",
+      "question": "Does ACPCE have extracurricular activities?",
+      "answer": "Yes. Students can participate in extracurricular activities, events and student activities organized by the college."
+    },
+    {
+      "tag": "student_activities_197",
+      "question": "Does ACPCE organize technical events?",
+      "answer": "The college organizes academic, technical and student activities. Event schedules can vary by academic year."
+    },
+    {
+      "tag": "student_activities_198",
+      "question": "Does ACPCE organize cultural events?",
+      "answer": "College students can participate in cultural and extracurricular activities organized during the academic year."
+    },
+    {
+      "tag": "student_activities_199",
+      "question": "Does ACPCE organize workshops?",
+      "answer": "Yes. Engineering colleges such as ACPCE conduct workshops, seminars and technical activities for student development."
+    },
+    {
+      "tag": "student_activities_200",
+      "question": "Does ACPCE conduct seminars?",
+      "answer": "Yes. Seminars and academic activities are conducted for student learning and development."
+    },
+    {
+      "tag": "student_activities_201",
+      "question": "Does ACPCE organize industrial visits?",
+      "answer": "Industrial visits may be organized as part of student learning and department activities. Check current department announcements."
+    },
+    {
+      "tag": "student_activities_202",
+      "question": "Does ACPCE conduct guest lectures?",
+      "answer": "Guest lectures and expert sessions may be organized as part of academic and professional development activities."
+    },
+    {
+      "tag": "student_activities_203",
+      "question": "Can students participate in competitions?",
+      "answer": "Yes. Students can participate in academic, technical, cultural and other competitions subject to college activities."
+    },
+
+    {
+      "tag": "scholarship_204",
+      "question": "Does ACPCE provide scholarships?",
+      "answer": "Scholarships and fee concessions depend on government rules, eligibility and the student's category. Students should check the latest college and government scholarship information."
+    },
+    {
+      "tag": "scholarship_205",
+      "question": "Are scholarships available for ACPCE students?",
+      "answer": "Eligible students may apply for scholarships according to applicable government and institutional rules."
+    },
+    {
+      "tag": "scholarship_206",
+      "question": "Does ACPCE provide fee concession?",
+      "answer": "Fee concessions may be available according to applicable government schemes and eligibility criteria."
+    },
+    {
+      "tag": "scholarship_207",
+      "question": "Does ACPCE accept EBC scholarship?",
+      "answer": "Scholarship eligibility depends on the current government rules and student category. Students should confirm the latest information with the college scholarship section."
+    },
+    {
+      "tag": "scholarship_208",
+      "question": "What scholarships are available?",
+      "answer": "Available scholarships depend on government schemes, student category and current eligibility requirements."
+    },
+
+    {
+      "tag": "contact_209",
+      "question": "What is the contact number of ACPCE?",
+      "answer": "The official college contact numbers are 022-47120976 and 022-47120977."
+    },
+    {
+      "tag": "contact_210",
+      "question": "How can I contact ACPCE?",
+      "answer": "You can contact ACPCE at 022-47120976 or 022-47120977."
+    },
+    {
+      "tag": "contact_211",
+      "question": "What is the college phone number?",
+      "answer": "The college contact numbers are 022-47120976 and 022-47120977."
+    },
+    {
+      "tag": "contact_212",
+      "question": "What is the ACPCE admission email?",
+      "answer": "The admission enquiry email is admission@acpce.ac.in."
+    },
+    {
+      "tag": "contact_213",
+      "question": "What is the college admission email address?",
+      "answer": "You can contact the admission department at admission@acpce.ac.in."
+    },
+    {
+      "tag": "contact_214",
+      "question": "How can I contact the admission department?",
+      "answer": "You can contact the admission department through admission@acpce.ac.in or the official college contact numbers."
+    },
+    {
+      "tag": "contact_215",
+      "question": "How do I ask ACPCE about admission?",
+      "answer": "You can contact the ACPCE admission department at admission@acpce.ac.in or call the official college contact numbers."
+    },
+    {
+      "tag": "contact_216",
+      "question": "Who should I contact for fees?",
+      "answer": "For current fee details, contact the ACPCE administration or admission department."
+    },
+    {
+      "tag": "contact_217",
+      "question": "Who should I contact for placement information?",
+      "answer": "For placement information, contact the Training and Placement department of ACPCE."
+    },
+    {
+      "tag": "contact_218",
+      "question": "Who should I contact for course information?",
+      "answer": "You can contact the college admission department or the relevant academic department for course information."
+    },
+
+    {
+      "tag": "website_219",
+      "question": "What is the official website of ACPCE?",
+      "answer": "The official website of A. C. Patil College of Engineering is acpce.ac.in."
+    },
+    {
+      "tag": "website_220",
+      "question": "Where can I find official ACPCE information?",
+      "answer": "You can find official college information through the ACPCE official website and college administration."
+    },
+    {
+      "tag": "website_221",
+      "question": "Where can I check ACPCE admission updates?",
+      "answer": "Admission updates should be checked through the official ACPCE website and applicable Maharashtra DTE admission notifications."
+    },
+    {
+      "tag": "website_222",
+      "question": "Where can I check ACPCE fees?",
+      "answer": "The latest fee information can be checked through the official ACPCE fee structure or by contacting the college."
+    },
+    {
+      "tag": "website_223",
+      "question": "Where can I check the ACPCE course list?",
+      "answer": "The available courses and branches can be checked through the official ACPCE academic information."
+    },
+    {
+      "tag": "website_224",
+      "question": "Where can I check placement information?",
+      "answer": "Placement information is available through the ACPCE Training and Placement department."
+    },
+
+    {
+      "tag": "departments_225",
+      "question": "What departments are available at ACPCE?",
+      "answer": "ACPCE has departments associated with Computer Engineering, Information Technology, Electrical Engineering, Mechanical Engineering, Electronics and Telecommunication, Artificial Intelligence and Data Science, Computer Science and Engineering, and Aeronautical Engineering."
+    },
+    {
+      "tag": "departments_226",
+      "question": "Does ACPCE have a Computer Engineering department?",
+      "answer": "Yes. ACPCE has a Computer Engineering department."
+    },
+    {
+      "tag": "departments_227",
+      "question": "Does ACPCE have an IT department?",
+      "answer": "Yes. Information Technology is one of the engineering departments at ACPCE."
+    },
+    {
+      "tag": "departments_228",
+      "question": "Does ACPCE have an Electrical department?",
+      "answer": "Yes. Electrical Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "departments_229",
+      "question": "Does ACPCE have a Mechanical department?",
+      "answer": "Yes. Mechanical Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "departments_230",
+      "question": "Does ACPCE have an EXTC department?",
+      "answer": "Yes. Electronics and Telecommunication Engineering is offered at ACPCE."
+    },
+    {
+      "tag": "departments_231",
+      "question": "Does ACPCE have an AI department?",
+      "answer": "Yes. Artificial Intelligence and Data Science is offered as an engineering program."
+    },
+
+    {
+      "tag": "branch_selection_232",
+      "question": "Is ACPCE good for Computer Engineering?",
+      "answer": "ACPCE offers Computer Engineering along with computer laboratories, academic facilities and placement support. Students should compare the latest curriculum, placements and fees before making a final decision."
+    },
+    {
+      "tag": "branch_selection_233",
+      "question": "Which branch is best at ACPCE?",
+      "answer": "The best branch depends on your interests and career goals. Computer Engineering, CSE, IT and AI & Data Science may suit students interested in software and technology, while other branches suit different career paths."
+    },
+    {
+      "tag": "branch_selection_234",
+      "question": "Which branch should I choose in ACPCE?",
+      "answer": "Choose a branch based on your interests, strengths, career plans, placement opportunities and eligibility."
+    },
+    {
+      "tag": "branch_selection_235",
+      "question": "Is ACPCE good for engineering?",
+      "answer": "ACPCE is an engineering college in Kharghar offering multiple engineering branches, academic facilities and placement support."
+    },
+
+    {
+      "tag": "college_timing_236",
+      "question": "What is the college timing?",
+      "answer": "College timings can vary according to the department, timetable, examination schedule and academic calendar. Students should check their current timetable."
+    },
+    {
+      "tag": "college_timing_237",
+      "question": "When does the college open?",
+      "answer": "Daily college timings may vary. Please check the current academic timetable or contact the college office."
+    },
+    {
+      "tag": "college_timing_238",
+      "question": "Is ACPCE open on Saturday?",
+      "answer": "Working days can vary according to the academic calendar and department schedule. Check the latest college timetable."
+    },
+    {
+      "tag": "college_timing_239",
+      "question": "Is ACPCE open on Sunday?",
+      "answer": "Sunday is generally not a regular academic working day, but special activities may have different schedules."
+    },
+
+    {
+      "tag": "admission_enquiry_240",
+      "question": "I want admission",
+      "answer": "Sure! I can help with ACPCE admission information such as eligibility, courses, documents, fees and the admission process."
+    },
+    {
+      "tag": "admission_enquiry_241",
+      "question": "I want to join ACPCE",
+      "answer": "Welcome! You can check the available engineering branches, eligibility, admission process, fees and required documents before applying."
+    },
+    {
+      "tag": "admission_enquiry_242",
+      "question": "I want to apply for Computer Engineering",
+      "answer": "You can apply for Computer Engineering through the applicable Maharashtra engineering admission process, subject to eligibility and seat availability."
+    },
+    {
+      "tag": "general_enquiry_243",
+      "question": "I want to know about ACPCE",
+      "answer": "ACPCE is an engineering college in Kharghar, Navi Mumbai, established in 1992 and affiliated with the University of Mumbai."
+    },
+    {
+      "tag": "general_enquiry_244",
+      "question": "Tell me everything about ACPCE",
+      "answer": "ACPCE is an engineering college in Kharghar, Navi Mumbai. It offers multiple engineering branches and MMS, along with academic facilities, laboratories, library, Wi-Fi, cafeteria and training and placement support."
+    },
+    {
+      "tag": "fee_enquiry_245",
+      "question": "I want to know the fees",
+      "answer": "I can provide general fee information, but current fees should be confirmed using the latest official ACPCE fee structure."
+    },
+    {
+      "tag": "cutoff_enquiry_246",
+      "question": "I want to know the cutoff",
+      "answer": "Cutoffs vary by branch, category, academic year and CAP round. Check the latest official cutoff information."
+    },
+    {
+      "tag": "placement_enquiry_247",
+      "question": "I want placement information",
+      "answer": "ACPCE has a Training and Placement department that provides placement and career support. Current placement statistics should be checked in the latest placement report."
+    },
+    {
+      "tag": "visit_248",
+      "question": "I want to visit the college",
+      "answer": "ACPCE is located at Plot No. 17, Sector 4, Kharghar, Navi Mumbai, opposite Kharghar Railway Station."
+    },
+    {
+      "tag": "first_visit_249",
+      "question": "I am coming to ACPCE for the first time",
+      "answer": "If you are travelling by train, get down at Kharghar Railway Station. The college is directly opposite the station, making it easy to locate."
+    },
+
+    {
+      "tag": "greeting_250",
+      "question": "Hello",
+      "answer": "Hello! Welcome to the A. C. Patil College of Engineering enquiry chatbot. How can I help you?"
+    },
+    {
+      "tag": "greeting_251",
+      "question": "Hi",
+      "answer": "Hi! Welcome to ACPCE. What would you like to know?"
+    },
+    {
+      "tag": "greeting_252",
+      "question": "Hey",
+      "answer": "Hey! Welcome to the ACPCE enquiry chatbot. Ask me about admissions, courses, fees, location, transport, facilities or placements."
+    },
+    {
+      "tag": "greeting_253",
+      "question": "Good morning",
+      "answer": "Good morning! Welcome to the ACPCE enquiry chatbot. How can I assist you?"
+    },
+    {
+      "tag": "greeting_254",
+      "question": "Good afternoon",
+      "answer": "Good afternoon! How can I help you with your ACPCE enquiry?"
+    },
+    {
+      "tag": "greeting_255",
+      "question": "Good evening",
+      "answer": "Good evening! Welcome to ACPCE. What information are you looking for?"
+    },
+    {
+      "tag": "help_256",
+      "question": "What can you do?",
+      "answer": "I can answer questions about ACPCE courses, admissions, location, transportation, facilities, contact information, placements and general college information."
+    },
+    {
+      "tag": "bot_identity_257",
+      "question": "Who are you?",
+      "answer": "I am the A. C. Patil College of Engineering enquiry chatbot. I can help you find information about the college."
+    },
+    {
+      "tag": "thanks_258",
+      "question": "Thank you",
+      "answer": "You're welcome! I'm happy to help with your ACPCE enquiry."
+    },
+    {
+      "tag": "thanks_259",
+      "question": "Thanks",
+      "answer": "You're welcome! Feel free to ask me another question about ACPCE."
+    },
+    {
+      "tag": "goodbye_260",
+      "question": "Bye",
+      "answer": "Goodbye! Have a great day and all the best for your studies."
+    },
+    {
+      "tag": "goodbye_261",
+      "question": "Goodbye",
+      "answer": "Goodbye! Thank you for using the ACPCE enquiry chatbot."
+    }
+  ]
+}

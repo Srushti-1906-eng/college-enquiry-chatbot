@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI College Enquiry Chatbot</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#0f172a,#2563eb);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.main-box{
+    width:900px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.left{
+    background:#0d6efd;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+.left img{
+    width:130px;
+    height:130px;
+    object-fit:contain;
+    background:white;
+    border-radius:50%;
+    padding:10px;
+    margin-bottom:20px;
+}
+
+.left h2{
+    font-weight:bold;
+}
+
+.left p{
+    margin-top:15px;
+    font-size:17px;
+}
+
+.right{
+    padding:50px;
+}
+
+.btn-custom{
+    width:100%;
+    margin-bottom:15px;
+    font-size:18px;
+    padding:12px;
+}
+
+.footer{
+    margin-top:25px;
+    text-align:center;
+    color:gray;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-box">
+
+<div class="row g-0">
+
+<div class="col-md-5 left">
+
+<img src="{{ url_for('static', filename='college_logo.png') }}" alt="College Logo">
+
+<h2>A.C.Patil College Of Engineering Kharghar</h2>
+
+<p>
+AI Powered College Enquiry Chatbot
+</p>
+
+<p>
+Admission • Fees • Courses • Placement • Hostel • Facilities
+</p>
+
+</div>
+
+<div class="col-md-7 right">
+
+<h2 class="text-center mb-4">
+🎓 AI College Enquiry Chatbot
+</h2>
+
+<a href="/login" class="btn btn-primary btn-custom">
+Student Login
+</a>
+
+<a href="/register" class="btn btn-success btn-custom">
+Student Registration
+</a>
+
+<a href="/admin_login" class="btn btn-dark btn-custom">
+Admin Login
+</a>
+
+<div class="footer">
+Developed using Python Flask • MySQL • AI Chatbot
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
