@@ -9,14 +9,29 @@ from flask_session import Session
 from database import get_connection
 
 
-app = Flask(__name__)
+# =========================================================
+# FLASK APP
+# =========================================================
 
-spell = SpellChecker()
+app = Flask(__name__)
 
 app.secret_key = "college_chatbot_secret"
 
 app.config["SESSION_TYPE"] = "filesystem"
+
 Session(app)
+
+import time
+
+start_time = time.time()
+
+spell = SpellChecker()
+
+print("SpellChecker loaded:", time.time() - start_time, "seconds")
+
+encoder = joblib.load("model/label_encoder.pkl")
+
+print("Models loaded:", time.time() - start_time, "seconds")
 
 stemmer = PorterStemmer()
 
@@ -145,10 +160,6 @@ def get_messages(conversation_id):
 
     cursor = conn.cursor(dictionary=True)
 
-    # Your database uses user_message and bot_reply.
-    # We rename them as question and answer so that
-    # your existing HTML can continue using question/answer.
-
     cursor.execute(
         """
         SELECT
@@ -255,19 +266,20 @@ def get_response(user_input):
     greetings = {
 
         "hi":
-        "Hi! Welcome to ACPCE. What would you like to know?",
+            "Hi! Welcome to ACPCE. What would you like to know?",
 
         "hii":
-        "Hi! Welcome to ACPCE. What would you like to know?",
+            "Hi! Welcome to ACPCE. What would you like to know?",
 
         "hiii":
-        "Hi! Welcome to ACPCE. What would you like to know?",
+            "Hi! Welcome to ACPCE. What would you like to know?",
 
         "hello":
-        "Hello! Welcome to the A. C. Patil College of Engineering enquiry chatbot. How can I help you?",
+            "Hello! Welcome to the A. C. Patil College of Engineering enquiry chatbot. How can I help you?",
 
         "hey":
-        "Hey! Welcome to the ACPCE enquiry chatbot. Ask me about admissions, courses, fees, location, facilities or placements."
+            "Hey! Welcome to the ACPCE enquiry chatbot. Ask me about admissions, courses, fees, location, facilities or placements."
+
     }
 
 
@@ -430,7 +442,6 @@ def login():
 
             session["student_name"] = student["name"]
 
-            # Remove old conversation from session
             session.pop("conversation_id", None)
 
             return redirect(url_for("chatbot"))
@@ -538,7 +549,7 @@ def admin_dashboard():
                 created_at
             FROM chat_history
             WHERE user_message LIKE %s
-            ORDER BY id DESC
+            ORDER BY id ASC
             """,
             (
                 "%" + search + "%",
@@ -556,7 +567,7 @@ def admin_dashboard():
                 bot_reply AS answer,
                 created_at
             FROM chat_history
-            ORDER BY id DESC
+            ORDER BY id ASC
             """
         )
 
@@ -602,11 +613,14 @@ def admin_dashboard():
 
 
 # =========================================================
-# NOTICE
+# STUDENT NOTICES
+# IMPORTANT:
+# ONLY ONE notices() FUNCTION
 # =========================================================
 
+@app.route("/notices")
 @app.route("/notice")
-def notice():
+def notices():
 
     connection = get_connection()
 
@@ -625,16 +639,19 @@ def notice():
         """
     )
 
-    notices = cursor.fetchall()
+    all_notices = cursor.fetchall()
 
     cursor.close()
 
     connection.close()
 
 
+    # Your actual file is:
+    # templates/notice.html
+
     return render_template(
         "notice.html",
-        notices=notices
+        notices=all_notices
     )
 
 
@@ -646,45 +663,62 @@ def notice():
 def chatbot():
 
     if "student_id" not in session:
-
         return redirect(url_for("login"))
-
 
     student_id = session["student_id"]
 
-
-    # Get student's conversations
+    # Get all previous conversations for this student
     conversations = get_conversations(student_id)
 
-
     # -----------------------------------------------------
-    # CREATE FIRST CHAT IF NONE EXISTS
+    # CREATE A NEW CHAT IF THERE IS NO ACTIVE CHAT
     # -----------------------------------------------------
 
-    if not conversations:
+    if "conversation_id" not in session:
 
         conversation_id = create_conversation(student_id)
+
+        if conversation_id is None:
+            return "Unable to create new conversation."
 
         session["conversation_id"] = conversation_id
 
     else:
 
-        # If current conversation doesn't exist
-        # or doesn't belong to this student,
-        # select the latest conversation.
+        current_id = session["conversation_id"]
 
-        current_id = session.get("conversation_id")
-
-
-        if (
-            current_id is None
-            or not conversation_belongs_to_student(
-                current_id,
-                student_id
-            )
+        # Make sure current conversation belongs to logged-in student
+        if not conversation_belongs_to_student(
+            current_id,
+            student_id
         ):
 
-            session["conversation_id"] = conversations[0]["id"]
+            conversation_id = create_conversation(student_id)
+
+            if conversation_id is None:
+                return "Unable to create new conversation."
+
+            session["conversation_id"] = conversation_id
+
+
+    # -----------------------------------------------------
+    # GET MESSAGES OF CURRENT CHAT
+    # -----------------------------------------------------
+
+    messages = get_messages(
+        session["conversation_id"]
+    )
+
+
+    # Refresh conversation history
+    conversations = get_conversations(student_id)
+
+
+    return render_template(
+        "chatbot.html",
+        conversations=conversations,
+        messages=messages
+    )
 
 
     # -----------------------------------------------------
@@ -697,6 +731,7 @@ def chatbot():
 
 
     # Refresh conversation list
+
     conversations = get_conversations(student_id)
 
 
@@ -742,7 +777,7 @@ def open_conversation(id):
         return redirect(url_for("login"))
 
 
-    # Make sure student can only open their own chats
+    # Student can only open their own conversations
 
     if not conversation_belongs_to_student(
         id,
@@ -808,7 +843,9 @@ def add_notice():
         connection.close()
 
 
-        return redirect(url_for("notice"))
+        # Go to admin notice page
+
+        return redirect(url_for("chatbot"))
 
 
     return render_template("add_notice.html")
@@ -976,43 +1013,6 @@ def logout():
 
 
 # =========================================================
-# NOTICES
-# =========================================================
-
-@app.route("/notices")
-def notices():
-
-    connection = get_connection()
-
-    if connection is None:
-
-        return "Database connection failed."
-
-
-    cursor = connection.cursor(dictionary=True)
-
-    cursor.execute(
-        """
-        SELECT *
-        FROM notices
-        ORDER BY notice_date DESC
-        """
-    )
-
-    all_notices = cursor.fetchall()
-
-    cursor.close()
-
-    connection.close()
-
-
-    return render_template(
-        "notices.html",
-        notices=all_notices
-    )
-
-
-# =========================================================
 # HOME
 # =========================================================
 
@@ -1036,6 +1036,8 @@ def chat():
         }), 401
 
 
+    # Make sure conversation exists
+
     if "conversation_id" not in session:
 
         session["conversation_id"] = create_conversation(
@@ -1044,6 +1046,7 @@ def chat():
 
 
     data = request.get_json()
+
 
     if not data or "message" not in data:
 
@@ -1062,10 +1065,12 @@ def chat():
         }), 400
 
 
+    # Get AI response
+
     bot_reply = get_response(user_message)
 
 
-    # SAVE MESSAGE TO CURRENT CONVERSATION
+    # Save message to current conversation
 
     save_chat(
         session["conversation_id"],
@@ -1078,6 +1083,45 @@ def chat():
         "response": bot_reply
     })
 
+# =========================================================
+# ADMIN FEEDBACK
+# =========================================================
+
+@app.route("/admin_feedback")
+def admin_feedback():
+
+    if "admin" not in session:
+        return redirect(url_for("admin_login"))
+
+    connection = get_connection()
+
+    if connection is None:
+        return "Database connection failed."
+
+    cursor = connection.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            feedback.id,
+            students.name AS student_name,
+            students.email AS student_email,
+            feedback.rating,
+            feedback.comment
+        FROM feedback
+        JOIN students
+            ON feedback.student_id = students.id
+        ORDER BY feedback.id DESC
+    """)
+
+    feedbacks = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return render_template(
+        "admin_feedback.html",
+        feedbacks=feedbacks
+    )
 
 # =========================================================
 # RUN APPLICATION
