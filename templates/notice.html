@@ -1,42 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>College Notices</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="container mt-4">
 
-<h2 class="text-center text-primary">College Notices</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-<table class="table table-bordered table-striped mt-4">
+        <h2>📢 College Notices</h2>
 
-    <thead class="table-dark">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Date</th>
-        </tr>
-    </thead>
+        <a href="/chatbot" class="btn btn-primary">
+            ← Back to Chatbot
+        </a>
 
-    <tbody>
+    </div>
 
-    {% for notice in notices %}
+    {% if notices %}
 
-    <tr>
-        <td>{{ notice.title }}</td>
-        <td>{{ notice.description }}</td>
-        <td>{{ notice.notice_date }}</td>
-    </tr>
+        {% for notice in notices %}
 
-    {% endfor %}
+        <div class="card mb-3 shadow-sm">
 
-    </tbody>
+            <div class="card-body">
 
-</table>
+                <h4 class="card-title">
+                    📢 {{ notice.title }}
+                </h4>
+
+                <p class="text-muted">
+                    {{ notice.notice_date }}
+                </p>
+
+                <p class="card-text">
+                    {{ notice.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="alert alert-info">
+            No notices available.
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Notices</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>📢 College Notices</h2>
+
+        <a href="/chatbot" class="btn btn-primary">
+            ← Back to Chatbot
+        </a>
+
+    </div>
+
+    {% if notices %}
+
+        {% for notice in notices %}
+
+        <div class="card mb-3 shadow-sm">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    📢 {{ notice.title }}
+                </h4>
+
+                <p class="text-muted">
+                    {{ notice.notice_date }}
+                </p>
+
+                <p class="card-text">
+                    {{ notice.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="alert alert-info">
+            No notices available.
+        </div>
+
+    {% endif %}
 
 </div>
 

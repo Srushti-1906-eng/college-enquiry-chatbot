@@ -11,12 +11,21 @@
 <div class="container mt-5">
 
     <h2 class="text-center text-primary">Admin Dashboard</h2>
-<a href="/add_notice" class="btn btn-success mb-3">
-    Add Notice
-</a>
-<a href="/add_faq" class="btn btn-info mb-3">
-    Add FAQ
-</a> 
+<div class="mt-4 mb-3">
+
+    <a href="/add_notice" class="btn btn-success me-1">
+        Add Notice
+    </a>
+
+    <a href="/add_faq" class="btn btn-info me-1">
+        Add FAQ
+    </a>
+
+    <a href="{{ url_for('admin_feedback') }}" class="btn btn-primary">
+        View Feedback
+    </a>
+
+</div>
     <div class="row mt-4">
 
     <div class="col-md-6">

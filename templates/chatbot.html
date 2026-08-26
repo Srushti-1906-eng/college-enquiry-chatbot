@@ -159,92 +159,108 @@ html,body{
 
 <div class="wrapper">
 
-    <!-- LEFT SIDEBAR -->
-    <div class="sidebar">
+<!-- LEFT SIDEBAR -->
+<div class="sidebar">
 
-        <h4>ACPCE AI</h4>
+    <h4>ACPCE AI</h4>
 
-        <a href="/new_chat" class="btn btn-light new-chat">
-            + New Chat
+    <a href="/new_chat" class="btn btn-light new-chat">
+        + New Chat
+    </a>
+
+    <!-- CHAT HISTORY -->
+    <div class="history">
+
+        {% for chat in conversations %}
+        <a href="/conversation/{{ chat.id }}" class="chat-link">
+            {{ chat.title }}
+        </a>
+        {% endfor %}
+
+    </div>
+
+    <!-- SIDEBAR BUTTONS -->
+    <div class="bottom-buttons">
+
+        <a href="/notices" class="btn btn-success btn-sm w-100 mb-2">
+            📢 Notices
         </a>
 
-        <div class="history">
+        <a href="/feedback" class="btn btn-warning btn-sm w-100 mb-2">
+            ⭐ Feedback
+        </a>
 
-            {% for chat in conversations %}
-            <a href="/conversation/{{chat.id}}" class="chat-link">
-                {{ chat.title }}
-            </a>
-            {% endfor %}
-
-        </div>
-
-        <a href="/logout" class="btn btn-danger w-100 mt-3">
+        <a href="/logout" class="btn btn-danger btn-sm w-100">
             Logout
         </a>
 
     </div>
 
-    <!-- CHAT AREA -->
-    <div class="chat-area">
+</div>
 
-        <div class="chat-card">
+        <!-- CHAT AREA -->
+        <div class="chat-area">
 
-            <div class="chat-header">
+            <div class="chat-card">
 
-                <img src="{{ url_for('static', filename='college_logo.png') }}" class="logo">
+                <div class="chat-header">
 
-                <h2>🎓 AI College Enquiry Chatbot</h2>
+                    <img src="{{ url_for('static', filename='college_logo.png') }}" class="logo">
 
-                <p>
-                    Welcome,
-                    <b>{{ session["student_name"] }}</b>
-                </p>
+                    <h2>🎓 AI College Enquiry Chatbot</h2>
 
-            </div>
+                    <p>
+                        Welcome,
+                        <b>{{ session["student_name"] }}</b>
+                    </p>
 
-            <div id="chat-box">
+                </div>
 
-                {% if messages %}
+                <div id="chat-box">
 
-                    {% for msg in messages %}
+                    {% if messages %}
 
-                    <div class="user">
-                        <span>{{ msg.question }}</span>
+                        {% for msg in messages %}
+
+                        <div class="user">
+                            <span>{{ msg.question }}</span>
+                        </div>
+
+                        <div class="bot">
+                            <span>{{ msg.answer }}</span>
+                        </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="bot">
+                            <span>Hello! Welcome to the AI College Enquiry Chatbot. How can I help you today?</span>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+                <div class="chat-footer">
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            id="user-input"
+                            class="form-control"
+                            placeholder="Type your question here..."
+                        >
+
+                        <button
+                            class="btn btn-primary"
+                            onclick="sendMessage()"
+                        >
+                            Send
+                        </button>
+
                     </div>
-
-                    <div class="bot">
-                        <span>{{ msg.answer }}</span>
-                    </div>
-
-                    {% endfor %}
-
-                {% else %}
-
-                    <div class="bot">
-                        <span>Hello! Welcome to the AI College Enquiry Chatbot. How can I help you today?</span>
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-            <div class="chat-footer">
-
-                <div class="input-group">
-
-                    <input
-                        type="text"
-                        id="user-input"
-                        class="form-control"
-                        placeholder="Type your question here..."
-                    >
-
-                    <button
-                        class="btn btn-primary"
-                        onclick="sendMessage()"
-                    >
-                        Send
-                    </button>
 
                 </div>
 
@@ -253,8 +269,6 @@ html,body{
         </div>
 
     </div>
-
-</div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
